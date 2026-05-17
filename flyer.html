@@ -1,0 +1,260 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>262 Willowbrook — Flyer</title>
+<style>
+@page { size: letter; margin: 0; }
+* { margin: 0; padding: 0; box-sizing: border-box; }
+body {
+  font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
+  color: #1d1d1f;
+  background: #fff;
+  -webkit-font-smoothing: antialiased;
+}
+.page {
+  width: 8.5in;
+  height: 11in;
+  padding: 0.6in 0.6in;
+  display: flex;
+  flex-direction: column;
+}
+.eyebrow {
+  font-size: 10pt;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: #86868b;
+  margin-bottom: 12pt;
+  font-weight: 500;
+}
+h1 {
+  font-family: Georgia, 'Times New Roman', serif;
+  font-size: 36pt;
+  font-weight: 500;
+  line-height: 1.05;
+  letter-spacing: -0.02em;
+  margin-bottom: 14pt;
+}
+.subhead {
+  font-size: 14pt;
+  font-weight: 300;
+  color: #424245;
+  line-height: 1.4;
+  margin-bottom: 28pt;
+}
+.price-row {
+  display: flex;
+  justify-content: space-between;
+  align-items: baseline;
+  padding-bottom: 16pt;
+  border-bottom: 1pt solid #d2d2d7;
+  margin-bottom: 24pt;
+}
+.price {
+  font-family: Georgia, serif;
+  font-size: 32pt;
+  font-weight: 500;
+  color: #1d1d1f;
+  letter-spacing: -0.02em;
+}
+.price-label {
+  font-size: 9pt;
+  letter-spacing: 0.15em;
+  text-transform: uppercase;
+  color: #86868b;
+}
+.stats {
+  display: grid;
+  grid-template-columns: repeat(5, 1fr);
+  gap: 10pt;
+  margin-bottom: 28pt;
+}
+.stat {
+  text-align: center;
+  padding: 14pt 4pt;
+  background: #f5f5f7;
+  border-radius: 6pt;
+}
+.stat .num {
+  font-family: Georgia, serif;
+  font-size: 22pt;
+  font-weight: 500;
+  line-height: 1;
+  color: #1d1d1f;
+}
+.stat .label {
+  font-size: 8pt;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: #86868b;
+  margin-top: 6pt;
+}
+.features {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 24pt;
+  margin-bottom: 28pt;
+}
+.features-col h3 {
+  font-size: 11pt;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: #86868b;
+  margin-bottom: 10pt;
+  font-weight: 500;
+}
+.features-col ul {
+  list-style: none;
+}
+.features-col li {
+  font-size: 11pt;
+  line-height: 1.6;
+  color: #1d1d1f;
+  padding-left: 12pt;
+  position: relative;
+}
+.features-col li::before {
+  content: '·';
+  position: absolute;
+  left: 0;
+  color: #86868b;
+}
+.qr-section {
+  margin-top: auto;
+  display: grid;
+  grid-template-columns: 1fr 1.4in;
+  gap: 24pt;
+  align-items: center;
+  padding-top: 24pt;
+  border-top: 1pt solid #d2d2d7;
+}
+.qr-cta h2 {
+  font-family: Georgia, serif;
+  font-size: 22pt;
+  font-weight: 500;
+  line-height: 1.1;
+  letter-spacing: -0.01em;
+  margin-bottom: 10pt;
+}
+.qr-cta p {
+  font-size: 11pt;
+  color: #424245;
+  line-height: 1.5;
+  margin-bottom: 14pt;
+}
+.contact {
+  font-size: 11pt;
+  color: #1d1d1f;
+  font-weight: 500;
+}
+.contact .label {
+  color: #86868b;
+  font-weight: 400;
+  font-size: 9pt;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  display: block;
+  margin-bottom: 2pt;
+}
+.qr-box {
+  text-align: center;
+}
+.qr-box img {
+  width: 1.4in;
+  height: 1.4in;
+  display: block;
+}
+.qr-box .scan {
+  font-size: 8pt;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: #86868b;
+  margin-top: 6pt;
+}
+.address {
+  font-size: 10pt;
+  color: #86868b;
+  margin-top: 4pt;
+}
+.fsbo-badge {
+  display: inline-block;
+  font-size: 8pt;
+  letter-spacing: 0.15em;
+  text-transform: uppercase;
+  color: #86868b;
+  border: 0.5pt solid #d2d2d7;
+  padding: 3pt 8pt;
+  border-radius: 3pt;
+  margin-bottom: 14pt;
+}
+</style>
+</head>
+<body>
+<div class="page">
+  <div class="fsbo-badge">For sale by owner</div>
+  <h1>This is home.</h1>
+  <p class="subhead">An upper-level condo with a real kitchen, two private balconies, a den, and the largest layout in the community. North Brunswick, NJ.</p>
+
+  <div class="price-row">
+    <div>
+      <div class="price-label">Listed at</div>
+      <div class="price">$460,000</div>
+    </div>
+    <div style="text-align: right;">
+      <div class="address">262 Willowbrook Drive</div>
+      <div class="address">North Brunswick, NJ 08902</div>
+    </div>
+  </div>
+
+  <div class="stats">
+    <div class="stat"><div class="num">2+1</div><div class="label">Beds + Den</div></div>
+    <div class="stat"><div class="num">2</div><div class="label">Baths</div></div>
+    <div class="stat"><div class="num">1,578</div><div class="label">Sq Ft</div></div>
+    <div class="stat"><div class="num">2</div><div class="label">Balconies</div></div>
+    <div class="stat"><div class="num">$338</div><div class="label">HOA/mo</div></div>
+  </div>
+
+  <div class="features">
+    <div class="features-col">
+      <h3>Inside</h3>
+      <ul>
+        <li>Kitchen with island & granite counters</li>
+        <li>Renovated primary bath, glass shower</li>
+        <li>Walk-in closets in both bedrooms</li>
+        <li>Den with high ceiling — easy 3rd bedroom</li>
+        <li>Flex room at entry — office or studio</li>
+        <li>In-unit Maytag washer & dryer</li>
+        <li>Hardwood floors throughout</li>
+      </ul>
+    </div>
+    <div class="features-col">
+      <h3>Outside &amp; community</h3>
+      <ul>
+        <li>Two private balconies (one covered)</li>
+        <li>Deeded basement storage space</li>
+        <li>Playground & dog park nearby</li>
+        <li>HOA covers landscaping, snow, roof, trash</li>
+        <li>Minutes to Routes 1, 130, NJ-27</li>
+        <li>Costco, Target, Trader Joe's under 10 min</li>
+        <li>Rental-friendly HOA</li>
+      </ul>
+    </div>
+  </div>
+
+  <div class="qr-section">
+    <div class="qr-cta">
+      <h2>See the home.<br>Schedule a visit.</h2>
+      <p>Scan the code for full photos, video walkthrough, and details.</p>
+      <div class="contact">
+        <span class="label">Call or text</span>
+        (971) 277-8212
+      </div>
+    </div>
+    <div class="qr-box">
+      <img src="qr-placeholder.png" alt="Scan to view the home online">
+      <div class="scan">Scan to view</div>
+    </div>
+  </div>
+</div>
+</body>
+</html>

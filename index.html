@@ -1,0 +1,732 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>262 Willowbrook — A home in North Brunswick</title>
+<meta name="description" content="An upper-level condo with a real kitchen, two private balconies, and a den. 1,574 sq ft. North Brunswick, NJ.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&family=Playfair+Display:wght@400;500;700&display=swap" rel="stylesheet">
+<style>
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  html { scroll-behavior: smooth; }
+  body {
+    font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+    color: #1d1d1f;
+    background: #fff;
+    line-height: 1.5;
+    overflow-x: hidden;
+    -webkit-font-smoothing: antialiased;
+  }
+
+  nav {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    z-index: 1000;
+    padding: 16px 32px;
+    background: rgba(255,255,255,0.72);
+    backdrop-filter: saturate(180%) blur(20px);
+    -webkit-backdrop-filter: saturate(180%) blur(20px);
+    border-bottom: 0.5px solid rgba(0,0,0,0.08);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    font-size: 14px;
+  }
+  nav .brand { font-weight: 500; letter-spacing: -0.01em; }
+  nav .price { color: #1d1d1f; font-weight: 500; }
+  nav a.cta {
+    background: #1d1d1f;
+    color: #fff;
+    padding: 8px 16px;
+    border-radius: 980px;
+    text-decoration: none;
+    font-size: 13px;
+    font-weight: 500;
+    transition: background .2s;
+  }
+  nav a.cta:hover { background: #424245; }
+
+  .hero {
+    height: 100vh;
+    min-height: 640px;
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    background-image: url('img/01-exterior-spring.jpeg');
+    background-size: cover;
+    background-position: center;
+    color: #fff;
+  }
+  .hero::after {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(180deg, rgba(0,0,0,0.15) 0%, rgba(0,0,0,0.45) 100%);
+  }
+  .hero-content {
+    position: relative;
+    z-index: 2;
+    padding: 0 24px;
+    max-width: 900px;
+    animation: fadeUp 1.4s ease;
+  }
+  @keyframes fadeUp {
+    from { opacity: 0; transform: translateY(30px); }
+    to { opacity: 1; transform: translateY(0); }
+  }
+  .hero h1 {
+    font-family: 'Playfair Display', Georgia, serif;
+    font-size: clamp(48px, 8vw, 88px);
+    font-weight: 500;
+    line-height: 1.05;
+    letter-spacing: -0.02em;
+    margin-bottom: 24px;
+    text-shadow: 0 2px 24px rgba(0,0,0,0.3);
+  }
+  .hero p.sub {
+    font-size: clamp(18px, 2.2vw, 24px);
+    font-weight: 300;
+    line-height: 1.4;
+    opacity: 0.95;
+    margin-bottom: 40px;
+    text-shadow: 0 1px 12px rgba(0,0,0,0.3);
+  }
+  .hero .price-tag {
+    display: inline-block;
+    font-size: 14px;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    opacity: 0.9;
+    margin-bottom: 16px;
+  }
+  .hero .scroll-hint {
+    position: absolute;
+    bottom: 40px;
+    left: 50%;
+    transform: translateX(-50%);
+    color: #fff;
+    font-size: 12px;
+    letter-spacing: 0.15em;
+    text-transform: uppercase;
+    opacity: 0.8;
+    z-index: 2;
+    animation: bounce 2.4s infinite;
+  }
+  @keyframes bounce {
+    0%, 100% { transform: translate(-50%, 0); opacity: 0.5; }
+    50% { transform: translate(-50%, 8px); opacity: 1; }
+  }
+
+  section {
+    padding: 120px 24px;
+    max-width: 1200px;
+    margin: 0 auto;
+  }
+  section.full {
+    max-width: 100%;
+    padding: 120px 0;
+  }
+  section.dark {
+    background: #f5f5f7;
+    max-width: 100%;
+    margin: 0;
+  }
+  section.dark .inner {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 24px;
+  }
+
+  .eyebrow {
+    font-size: 13px;
+    letter-spacing: 0.18em;
+    text-transform: uppercase;
+    color: #86868b;
+    margin-bottom: 16px;
+    font-weight: 500;
+  }
+  h2 {
+    font-family: 'Playfair Display', Georgia, serif;
+    font-size: clamp(36px, 5.5vw, 64px);
+    font-weight: 500;
+    line-height: 1.08;
+    letter-spacing: -0.015em;
+    margin-bottom: 24px;
+  }
+  h3 {
+    font-size: clamp(22px, 2.8vw, 32px);
+    font-weight: 500;
+    line-height: 1.2;
+    letter-spacing: -0.01em;
+    margin-bottom: 16px;
+  }
+  p.lead {
+    font-size: clamp(18px, 2vw, 22px);
+    line-height: 1.55;
+    color: #424245;
+    max-width: 720px;
+    margin-bottom: 48px;
+    font-weight: 300;
+  }
+  p.body {
+    font-size: 17px;
+    line-height: 1.6;
+    color: #424245;
+    max-width: 640px;
+    margin-bottom: 24px;
+  }
+
+  .img-full {
+    width: 100%;
+    height: auto;
+    display: block;
+    border-radius: 12px;
+    overflow: hidden;
+  }
+  .img-rounded {
+    border-radius: 18px;
+    overflow: hidden;
+  }
+  .img-bleed {
+    width: 100%;
+    height: 80vh;
+    min-height: 480px;
+    object-fit: cover;
+    display: block;
+  }
+
+  .grid-2 {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 24px;
+    align-items: center;
+  }
+  .grid-3 {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 16px;
+  }
+  .grid-photos {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 16px;
+  }
+  @media (max-width: 768px) {
+    .grid-2 { grid-template-columns: 1fr; }
+    .grid-3 { grid-template-columns: 1fr; }
+    section { padding: 80px 20px; }
+    nav { padding: 12px 20px; }
+    nav .brand { font-size: 12px; }
+  }
+
+  .quote {
+    font-family: 'Playfair Display', Georgia, serif;
+    font-size: clamp(24px, 3vw, 36px);
+    font-style: italic;
+    font-weight: 400;
+    line-height: 1.4;
+    color: #1d1d1f;
+    max-width: 800px;
+    margin: 0 auto;
+    text-align: center;
+    padding: 40px 0;
+  }
+
+  .stats {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(140px, 1fr));
+    gap: 32px;
+    padding: 60px 0;
+    border-top: 0.5px solid rgba(0,0,0,0.1);
+    border-bottom: 0.5px solid rgba(0,0,0,0.1);
+    margin: 48px 0;
+  }
+  .stat {
+    text-align: center;
+  }
+  .stat .num {
+    font-family: 'Playfair Display', Georgia, serif;
+    font-size: clamp(36px, 5vw, 56px);
+    font-weight: 500;
+    line-height: 1;
+    color: #1d1d1f;
+    letter-spacing: -0.02em;
+  }
+  .stat .label {
+    font-size: 13px;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    color: #86868b;
+    margin-top: 12px;
+  }
+
+  .feature-list {
+    list-style: none;
+    padding: 0;
+    max-width: 720px;
+  }
+  .feature-list li {
+    display: flex;
+    align-items: flex-start;
+    gap: 16px;
+    padding: 16px 0;
+    border-bottom: 0.5px solid rgba(0,0,0,0.08);
+    font-size: 16px;
+    color: #424245;
+  }
+  .feature-list li:last-child { border-bottom: none; }
+  .feature-list .label {
+    min-width: 180px;
+    color: #1d1d1f;
+    font-weight: 500;
+  }
+  @media (max-width: 600px) {
+    .feature-list li { flex-direction: column; gap: 4px; }
+    .feature-list .label { min-width: 0; }
+  }
+
+  .video-placeholder {
+    width: 100%;
+    aspect-ratio: 16/9;
+    background: #1d1d1f;
+    border-radius: 18px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: #86868b;
+    font-size: 14px;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    position: relative;
+    overflow: hidden;
+    background-image: url('img/15-big-balcony-1.jpeg');
+    background-size: cover;
+    background-position: center;
+  }
+  .video-placeholder::after {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background: rgba(0,0,0,0.5);
+  }
+  .video-placeholder .play {
+    position: relative;
+    z-index: 2;
+    text-align: center;
+    color: #fff;
+  }
+  .video-placeholder .play .icon {
+    width: 72px;
+    height: 72px;
+    border-radius: 50%;
+    border: 2px solid #fff;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: 0 auto 16px;
+    font-size: 24px;
+  }
+
+  .cta-section {
+    text-align: center;
+    background: #1d1d1f;
+    color: #fff;
+    max-width: 100%;
+    padding: 120px 24px;
+  }
+  .cta-section h2 { color: #fff; }
+  .cta-section p { color: rgba(255,255,255,0.7); margin-bottom: 40px; font-size: 20px; max-width: 600px; margin-left: auto; margin-right: auto; }
+  .cta-buttons {
+    display: flex;
+    gap: 16px;
+    justify-content: center;
+    flex-wrap: wrap;
+    margin-top: 32px;
+  }
+  .btn {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    padding: 14px 32px;
+    border-radius: 980px;
+    font-size: 16px;
+    font-weight: 500;
+    text-decoration: none;
+    transition: all .2s;
+  }
+  .btn-primary {
+    background: #fff;
+    color: #1d1d1f;
+  }
+  .btn-primary:hover { background: #e5e5e7; }
+  .btn-secondary {
+    background: transparent;
+    color: #fff;
+    border: 1px solid rgba(255,255,255,0.3);
+  }
+  .btn-secondary:hover { background: rgba(255,255,255,0.1); }
+
+  footer {
+    background: #1d1d1f;
+    color: rgba(255,255,255,0.5);
+    padding: 40px 24px;
+    text-align: center;
+    font-size: 13px;
+    border-top: 0.5px solid rgba(255,255,255,0.1);
+  }
+  footer p { margin: 4px 0; }
+  footer a { color: rgba(255,255,255,0.7); text-decoration: none; }
+
+  .reveal {
+    opacity: 0;
+    transform: translateY(40px);
+    transition: opacity .9s ease, transform .9s ease;
+  }
+  .reveal.visible {
+    opacity: 1;
+    transform: translateY(0);
+  }
+</style>
+</head>
+<body>
+
+<nav>
+  <div class="brand">262 Willowbrook · North Brunswick</div>
+  <div style="display:flex; gap:24px; align-items:center;">
+    <span class="price">$460,000</span>
+    <a href="#contact" class="cta">Schedule a visit</a>
+  </div>
+</nav>
+
+<header class="hero">
+  <div class="hero-content">
+    <div class="price-tag">Listed at $460,000</div>
+    <h1>This is home.</h1>
+    <p class="sub">An upper-level condo where the kitchen has an island,<br>the bedroom has a view, and the balcony has stories.</p>
+  </div>
+  <div class="scroll-hint">Scroll to enter</div>
+</header>
+
+<section class="reveal">
+  <div class="eyebrow">262 Willowbrook Drive · North Brunswick, NJ</div>
+  <h2>1,574 square feet.<br>The biggest layout in the community.</h2>
+  <p class="lead">Most condos this size give you a galley kitchen and a single balcony. This one gives you a real kitchen with an island, two private balconies, a den you'd actually use, and a primary suite that feels like a retreat. Plus a flex room at the entry — currently an art studio, easily a home office — and a deeded basement storage room the same size again.</p>
+  <p class="lead">Minutes from Routes 1, 130, and NJ-27. Costco, Target, Trader Joe's, and a dozen restaurants under 10 minutes away. Rental-friendly community for when life changes. Built in 1989. Cared for ever since.</p>
+
+  <div class="stats">
+    <div class="stat"><div class="num">2+1</div><div class="label">Beds + Den</div></div>
+    <div class="stat"><div class="num">2</div><div class="label">Full baths</div></div>
+    <div class="stat"><div class="num">1,574</div><div class="label">Square feet</div></div>
+    <div class="stat"><div class="num">2</div><div class="label">Balconies</div></div>
+    <div class="stat"><div class="num">$338</div><div class="label">Monthly HOA</div></div>
+  </div>
+</section>
+
+<section class="full reveal" style="text-align: center;">
+  <img src="img/02-walkway.png" alt="Front entrance to the building framed by evergreens and rhododendrons" style="max-width: 900px; width: 100%; height: auto; border-radius: 12px;">
+</section>
+
+<section class="reveal">
+  <div class="eyebrow">The arrival</div>
+  <h2>One flight up.<br>Above it all.</h2>
+  <p class="lead">A walkway lined with mature evergreens and seasonal blooms. Through the stone-framed doors, up a single flight to your own door. No elevator queue. No neighbors overhead.</p>
+  <img src="img/03-unit-door.png" alt="Front door of the unit" class="img-rounded img-full">
+</section>
+
+<section class="dark reveal">
+  <div class="inner">
+    <div class="grid-2">
+      <div>
+        <div class="eyebrow">The flex room</div>
+        <h3>A room that becomes whatever you need.</h3>
+        <p class="body">Right inside the front door, a fully renovated flex space — custom-built mudroom cabinetry, accent wallpaper, and a ceiling fan overhead.</p>
+        <p class="body">It's been an art studio. It could just as easily be a home office, a reading nook, a yoga corner, or a real entryway with proper storage.</p>
+      </div>
+      <img src="img/04-flex-room.jpeg" alt="Flex room with custom cabinet and wallpaper accent" class="img-rounded img-full">
+    </div>
+  </div>
+</section>
+
+<section class="reveal">
+  <div class="eyebrow">Where life happens</div>
+  <h2>The living room<br>opens to green.</h2>
+  <p class="lead">Sky-blue walls. Dark hardwood floors. A pass-through to the kitchen so you're never alone when you cook. And a wall of sliding glass that opens onto a small balcony framed by mature trees and lawn.</p>
+  <img src="img/05-living-room-1.jpeg" alt="Living room with sky blue walls and hardwood floors" class="img-rounded img-full" style="margin-bottom: 16px;">
+  <img src="img/06-living-room-2.jpeg" alt="Living room with sliding doors to balcony" class="img-rounded img-full">
+</section>
+
+<section class="reveal" style="text-align: center;">
+  <div class="quote">"This is where the day starts and the day ends. Coffee in the morning, conversations at night."</div>
+</section>
+
+<section class="dark reveal">
+  <div class="inner">
+    <div class="grid-2">
+      <img src="img/07-den.jpeg" alt="The den set up as a kids' adventure space with jungle gym" class="img-rounded img-full">
+      <div>
+        <div class="eyebrow">The den</div>
+        <h3>A third room that earns its keep.</h3>
+        <p class="body">Tall ceiling. Wide window. Same dark hardwood that runs through the rest of the unit. Right now it's set up as a kid's adventure room — a wall-mounted jungle gym with climbing ropes, monkey bars, and a swing. The jungle gym stays if you want it, comes off in a weekend if you don't.</p>
+        <p class="body">It's been a home office too. It could be a nursery, a media room, a library, a third bedroom for guests who stay too long. Most condos this size don't give you a room like this. This one does.</p>
+      </div>
+    </div>
+    <div style="margin-top: 32px;">
+      <img src="img/07b-den-office.jpeg" alt="The den as a clean home office setup" class="img-rounded img-full" style="max-width: 720px; margin: 0 auto; display: block;">
+    </div>
+  </div>
+</section>
+
+<section class="full reveal">
+  <img src="img/08-kitchen-island.jpeg" alt="Kitchen with full island and powder blue cabinetry" class="img-bleed">
+</section>
+
+<section class="reveal">
+  <div class="eyebrow">The kitchen</div>
+  <h2>The kind of kitchen<br>you don't expect here.</h2>
+  <p class="lead">Most condos give you a galley and a microwave. This one gives you a full island with granite counters, stainless steel appliances including a real hood vent over a gas range, glass-front cabinets, a pass-through to the living room, and pendant lights over the island. A dedicated water purifier under the sink delivers filtered water through its own faucet — no countertop pitcher, no filter to replace at the fridge. The cabinets were freshly painted six months ago in a soft powder blue.</p>
+  <div style="margin-top: 32px; display: flex; flex-direction: column; gap: 24px;">
+    <img src="img/09-kitchen-fridge.jpeg" alt="Kitchen island close-up with granite counter and pendant lights" class="img-rounded img-full">
+    <img src="img/10-kitchen-stove.jpeg" alt="Kitchen showing pass-through to living room and stainless fridge" class="img-rounded img-full">
+    <img src="img/11-kitchen-island2.jpeg" alt="Gas range with stainless hood vent" class="img-rounded img-full">
+  </div>
+</section>
+
+<section class="dark reveal">
+  <div class="inner">
+    <div class="grid-2">
+      <div>
+        <div class="eyebrow">The dining</div>
+        <h3>Built for long dinners.</h3>
+        <p class="body">An open archway connects the kitchen to the dining area. Recessed lighting overhead. Dark hardwood underfoot. And a wall of sliding glass that opens onto something most condos can only dream of — a second, larger balcony.</p>
+      </div>
+      <img src="img/14-dining-room.jpeg" alt="Dining area with sliding doors to large balcony" class="img-rounded img-full">
+    </div>
+  </div>
+</section>
+
+<section class="reveal">
+  <div class="eyebrow">Two balconies, two moods</div>
+  <h2>Outside, twice.</h2>
+  <p class="lead">The small balcony off the living room is for mornings — sun, coffee, fresh air, a glance at the playground below. The big balcony off the dining room is for evenings — covered, wired with string lights, deep enough for a dining setup or a lounge or both.</p>
+
+  <div class="grid-2" style="margin-bottom: 24px;">
+    <div>
+      <h3 style="margin-top: 24px;">The morning balcony</h3>
+      <p class="body">Off the living room. Open to the sky. Upgraded brick-pattern tile underfoot, smaller footprint. The playground is visible through the railing. The kind of spot where coffee turns into two coffees.</p>
+      <img src="img/18-small-balcony.jpeg" alt="Small balcony off living room" class="img-rounded img-full">
+    </div>
+    <div>
+      <h3 style="margin-top: 24px;">The evening balcony</h3>
+      <p class="body">Off the dining room. Covered overhead. String lights already hung. Upgraded brick-pattern interlocking tile underfoot — clean, dry, no maintenance. Deep enough to host. Some of the best nights happened right here — late dinners, long talks, the lawn fading into dusk beyond the railing.</p>
+      <img src="img/15-big-balcony-1.jpeg" alt="Big balcony with string lights and view" class="img-rounded img-full">
+    </div>
+  </div>
+
+  <div class="grid-2">
+    <img src="img/16-big-balcony-2.jpeg" alt="Big balcony view of grounds" class="img-rounded img-full">
+    <img src="img/17-big-balcony-3.jpeg" alt="Big balcony evening setup" class="img-rounded img-full">
+  </div>
+
+  <div style="display: grid; grid-template-columns: 2fr 1fr; gap: 16px; margin-top: 32px; align-items: stretch;">
+    <div style="position: relative; padding-bottom: 0; height: 100%;">
+      <div style="position: relative; padding-bottom: 56.25%; height: 0; border-radius: 18px; overflow: hidden; background: #000;">
+        <iframe style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; border: 0;" src="https://www.youtube.com/embed/FD5IoMWuFqs" title="Evening on the big balcony" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+      </div>
+      <p style="text-align: center; margin-top: 12px; font-size: 13px; color: #86868b; letter-spacing: 0.08em; text-transform: uppercase;">Evening on the big balcony</p>
+    </div>
+    <div>
+      <div style="position: relative; padding-bottom: 177.78%; height: 0; border-radius: 18px; overflow: hidden; background: #000;">
+        <iframe style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; border: 0;" src="https://www.youtube.com/embed/uMxjd-b0Pn0" title="Spring morning view from the small balcony" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+      </div>
+      <p style="text-align: center; margin-top: 12px; font-size: 13px; color: #86868b; letter-spacing: 0.08em; text-transform: uppercase;">Spring morning view</p>
+    </div>
+  </div>
+</section>
+
+<section class="dark reveal" style="text-align: center;">
+  <div class="inner">
+    <div class="quote">"Some of our best memories happened right here. Late night dinners under string lights. Long talks that turned into longer ones. The kind of evenings you don't want to end."</div>
+  </div>
+</section>
+
+<section class="reveal">
+  <div class="eyebrow">The owner's retreat</div>
+  <h2>King bed. Sitting area.<br>Still room to spare.</h2>
+  <p class="lead">A wall of windows facing the lawn. A walk-in closet that's actually walk-in — bigger than the one in the second bedroom. Room for a king bed and a private sitting area, and still room to spare. Dark hardwood throughout.</p>
+  <div class="grid-2" style="margin-bottom: 24px; align-items: stretch;">
+    <div>
+      <img src="img/32-hallway.jpeg" alt="Gallery hallway leading to the primary bedroom" class="img-rounded img-full" style="height: 100%; object-fit: cover;">
+      <p class="body" style="margin-top: 12px; font-size: 14px; color: #86868b; font-style: italic;">The approach — a gallery hallway leads to the retreat.</p>
+    </div>
+    <img src="img/23-primary-bed-1.jpeg" alt="Primary bedroom with windows and sitting area" class="img-rounded img-full" style="height: 100%; object-fit: cover;">
+  </div>
+  <div class="grid-2">
+    <img src="img/24-primary-bed-2.jpeg" alt="Primary bedroom king bed view" class="img-rounded img-full">
+    <img src="img/25-primary-closet.jpeg" alt="Primary bedroom walk-in closet" class="img-rounded img-full">
+  </div>
+</section>
+
+<section class="dark reveal">
+  <div class="inner">
+    <div class="grid-2">
+      <img src="img/26-primary-bath.jpeg" alt="Primary bathroom with glass shower and mosaic tile" class="img-rounded img-full">
+      <div>
+        <div class="eyebrow">The en-suite</div>
+        <h3>A bathroom someone designed.</h3>
+        <p class="body">Aqua mosaic tile. A glass-top double vanity with two sinks. A separate glass shower stall — no tub-shower compromise. Built-in wicker basket storage tucked into the wall. Mirror-on-mirror corner detail that catches the light.</p>
+        <p class="body">Thoughtfully renovated. Move-in ready.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="reveal">
+  <div class="eyebrow">The second bedroom</div>
+  <h2>Bright. Walk-in.<br>Easy to make yours.</h2>
+  <p class="lead">A walk-in closet. Big windows with the same green view. Currently styled as a kids' room — equally at home as a guest room, a home office, or a nursery. Recessed lighting and dark hardwood, like everywhere else in the unit.</p>
+  <div class="grid-2">
+    <img src="img/20-kids-bedroom-1.jpeg" alt="Second bedroom with walk-in closet" class="img-rounded img-full">
+    <img src="img/21-kids-bedroom-2.jpeg" alt="Second bedroom with twin beds" class="img-rounded img-full">
+  </div>
+</section>
+
+<section class="dark reveal">
+  <div class="inner">
+    <div class="grid-2">
+      <img src="img/19-laundry.jpeg" alt="In-unit Maytag washer and dryer" class="img-rounded img-full">
+      <div>
+        <div class="eyebrow">Everyday essentials</div>
+        <h3>Laundry, sorted.</h3>
+        <p class="body">A brand-new Maytag washer and dryer — about a year old, with remaining Costco warranty. Tucked into a hallway closet behind louvered doors that disappear when closed. Shelf storage above for everything you'd forget to buy if it wasn't already there.</p>
+      </div>
+    </div>
+
+    <div class="grid-2" style="margin-top: 64px;">
+      <img src="img/22-first-bath.jpeg" alt="Second full bathroom" class="img-rounded img-full">
+      <div>
+        <div class="eyebrow">The second bath</div>
+        <h3>Clean. Functional. Ready.</h3>
+        <p class="body">Off the dining area, near the second bedroom and den. Tub-and-shower combo, dedicated vanity. Recently refreshed with new fixtures. A second full bathroom means guests aren't waiting and family isn't sharing.</p>
+      </div>
+    </div>
+
+    <div style="margin-top: 64px; text-align: center; max-width: 720px; margin-left: auto; margin-right: auto;">
+      <div class="eyebrow">Extra storage</div>
+      <h3>Private storage. Downstairs.</h3>
+      <p class="body" style="margin-left: auto; margin-right: auto;">A deeded basement storage space that belongs to this unit — roughly the same footprint as the flex room upstairs. It's storage, not living space: dark, basement, exactly what storage should be. Bikes, holiday decorations, off-season clothes, the gear that doesn't belong in your living room. The kind of space most condos don't give you.</p>
+    </div>
+  </div>
+</section>
+
+<section class="full reveal">
+  <img src="img/28-grounds-1.png" alt="Willowbrook Condominiums grounds and architecture" class="img-bleed">
+</section>
+
+<section class="reveal">
+  <div class="eyebrow">The setting</div>
+  <h2>Brick. Lawns. Trees<br>that have been here a while.</h2>
+  <p class="lead">Willowbrook is a mature community of brick condominiums set on generous, professionally maintained grounds. The HOA handles every blade of grass, every hedge, every snowfall on the walkways. The kind of community that quietly stays nice while others slowly slip.</p>
+  <div class="grid-2">
+    <img src="img/29-grounds-2.png" alt="Building exterior and lawns" class="img-rounded img-full">
+    <img src="img/30-grounds-3.png" alt="Mature landscaping between buildings" class="img-rounded img-full">
+  </div>
+</section>
+
+<section class="dark reveal">
+  <div class="inner">
+    <div class="eyebrow">The community</div>
+    <h2>A playground steps away.<br>A dog park right out front.</h2>
+    <div class="grid-2" style="margin-top: 48px;">
+      <div>
+        <img src="img/27-playground.jpeg" alt="Community playground visible from balcony" class="img-rounded img-full">
+        <p class="body" style="margin-top: 16px;">The community playground sits just outside, visible from the living room balcony — fenced, modern equipment, shaded play structure.</p>
+      </div>
+      <div>
+        <img src="img/31-dog-park.png" alt="Dog park nearby with fencing and benches" class="img-rounded img-full">
+        <p class="body" style="margin-top: 16px;">A dog park is right out front — fenced, with benches and well-maintained grounds. Good for the four-legged residents of the neighborhood.</p>
+      </div>
+    </div>
+    <p class="body" style="margin-top: 48px; max-width: 720px;">And the parking is open, plentiful, and right outside the building. Bring two cars, three cars, visiting family. There's room.</p>
+  </div>
+</section>
+
+<section class="reveal">
+  <div class="eyebrow">The location</div>
+  <h2>Hidden Lake Shoppes<br>are right outside.</h2>
+  <p class="lead">Step outside and you're at Hidden Lake Shoppes — a deli, Sal's Pizza, a salon, a Belle dance studio, a temple, a church, The Arc office, a laundry service, and more. Everything else is a 10-minute drive: Costco, Target, Walmart Supercenter, Trader Joe's, Staples, CVS, Walgreens, Marshalls, Burlington, highly-rated restaurants, big Indian grocery stores, auto repair shops. Routes 1, 130, and NJ-27 are minutes away.</p>
+
+  <ul class="feature-list">
+    <li><span class="label">Hidden Lake Shoppes</span><span>Walking distance — deli, pizza, salon, dance, temple, church, laundry</span></li>
+    <li><span class="label">Major highways</span><span>Route 1, Route 130, NJ-27 within minutes</span></li>
+    <li><span class="label">Under 10 minutes</span><span>Costco, Target, Walmart, Trader Joe's, CVS, Marshalls</span></li>
+    <li><span class="label">Indian groceries</span><span>Multiple large stores within a short drive</span></li>
+    <li><span class="label">Schools</span><span>North Brunswick Township Public School District</span></li>
+  </ul>
+</section>
+
+<section class="dark reveal">
+  <div class="inner">
+    <div class="eyebrow">The details</div>
+    <h2>Specs, plainly.</h2>
+    <ul class="feature-list" style="max-width: 100%;">
+      <li><span class="label">Address</span><span>262 Willowbrook Drive, North Brunswick, NJ 08902</span></li>
+      <li><span class="label">Asking price</span><span>$460,000</span></li>
+      <li><span class="label">Size</span><span>1,574 sq ft</span></li>
+      <li><span class="label">Layout</span><span>2 bedrooms + den (functions as 3rd bedroom), 2 full bathrooms</span></li>
+      <li><span class="label">Position</span><span>Upper-level unit, no neighbors above, one flight up</span></li>
+      <li><span class="label">Year built</span><span>1989</span></li>
+      <li><span class="label">Community</span><span>Willowbrook Condominiums</span></li>
+      <li><span class="label">HOA fee</span><span>$338/month</span></li>
+      <li><span class="label">HOA includes</span><span>Landscaping, snow removal, roof, exterior maintenance, trash</span></li>
+      <li><span class="label">Property taxes</span><span>$6,108/year (2024–25)</span></li>
+      <li><span class="label">Parking</span><span>Open surface lot, no assigned spots, plenty available</span></li>
+      <li><span class="label">Closets</span><span>Walk-in in both bedrooms</span></li>
+      <li><span class="label">Basement storage</span><span>Deeded private storage space (roughly the size of the flex room)</span></li>
+      <li><span class="label">Balconies</span><span>Two — one off living room (small, open), one off dining (large, covered)</span></li>
+      <li><span class="label">Laundry</span><span>Maytag washer & dryer, in-unit, ~1 year old, remaining Costco warranty</span></li>
+      <li><span class="label">Heating/Cooling</span><span>Central air, forced hot air</span></li>
+      <li><span class="label">Floors</span><span>Hardwood throughout main living areas</span></li>
+      <li><span class="label">Major systems</span><span>All major systems and appliances — details available on request</span></li>
+      <li><span class="label">Rentals</span><span>Rental-friendly HOA (2 units currently rented in the building)</span></li>
+    </ul>
+    <p class="body" style="margin-top: 32px; font-size: 14px; color: #86868b; font-style: italic;">Pet policy and full HOA terms available on request. Interested buyers should review HOA documents before making an offer.</p>
+  </div>
+</section>
+
+<section id="contact" class="cta-section">
+  <div class="eyebrow" style="color: rgba(255,255,255,0.5);">For sale by owner</div>
+  <h2 style="color: #fff;">Come see it.</h2>
+  <p>The photos are good. The story is real. But the only way to know if this is home is to walk through it. Call or text to schedule a visit.</p>
+  <div class="cta-buttons">
+    <a href="tel:+19712778212" class="btn btn-primary">Call (971) 277-8212</a>
+    <a href="sms:+19712778212" class="btn btn-secondary">Text to schedule</a>
+    <a href="https://wa.me/19712778212" class="btn btn-secondary">WhatsApp</a>
+  </div>
+</section>
+
+<footer>
+  <p>262 Willowbrook Drive · North Brunswick, NJ 08902</p>
+  <p>For sale by owner · <a href="tel:+19712778212">(971) 277-8212</a></p>
+  <p style="margin-top: 16px; opacity: 0.4;">All information believed accurate but not guaranteed. Buyer to verify all details.</p>
+</footer>
+
+<script>
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) {
+        entry.target.classList.add('visible');
+      }
+    });
+  }, { threshold: 0.1, rootMargin: '0px 0px -80px 0px' });
+
+  document.querySelectorAll('.reveal').forEach(el => observer.observe(el));
+</script>
+
+</body>
+</html>
